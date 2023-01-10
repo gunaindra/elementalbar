@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    // penggunaan komponen "components/namaComponents",
+    "baseUrl": ".",
+    "paths": {
+      // penggunaan komponen / helpers "@/components/namaComponents"
+      "@/components/*": ["components/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/hook/*": ["hook/*"],
+      "@/data/*": ["data/*"],
+      "@/icon/*": ["icon/*"],
+      "@/styles/*": ["styles/*"],
+      "@/helpers/*": ["helpers/*"],
+      "@/utils/*": ["utils/*"]
+    }
+  }
+}
