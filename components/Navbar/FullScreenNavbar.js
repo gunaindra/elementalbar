@@ -32,8 +32,8 @@ function FullScreenNavbar({ isShow }) {
               navbarContext.isShowNavbar ? "rotate-0" : "rotate-45"
             } `}
             src={"/assets/svg/x-icon.svg"}
-            width={25}
-            height={25}
+            width={35}
+            height={35}
             alt="XIcon"
           />
         </div>

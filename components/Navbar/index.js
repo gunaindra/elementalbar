@@ -29,8 +29,8 @@ function NavbarComponent() {
                 navbarContext.isShowNavbar ? "hidden" : " "
               } `}
               src={"/assets/svg/plus-icon.svg"}
-              width={30}
-              height={30}
+              width={35}
+              height={35}
               alt="PlusIcon"
             />
           </div>

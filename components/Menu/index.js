@@ -2,7 +2,7 @@ import CardMenu from "@/components/CardMenu";
 
 function Menu() {
   return (
-    <div className="grid lg:grid-cols-2 print:grid-cols-2 gap-5 mx-7 pb-90px">
+    <div className="grid lg:grid-cols-2 print:grid-cols-2 gap-8 mx-10 pb-90px">
       <CardMenu
         image="/assets/images/eb-web-story.webp"
         href={"/story"}
