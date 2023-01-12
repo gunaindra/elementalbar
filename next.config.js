@@ -9,18 +9,8 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: [
-        "next-swc-loader",
-        {
-          loader: "@svgr/webpack",
-          options: { babel: false },
-        },
-      ],
+      use: ["@svgr/webpack"],
     });
-    config.resolve.fallback = {
-      fs: false,
-      path: false,
-    };
 
     return config;
   },

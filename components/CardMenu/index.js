@@ -3,26 +3,23 @@ import Link from "next/link";
 
 function CardMenu({ image, href, hrefTitle }) {
   return (
-    <div className="flex flex-col flex-wrap justify-center">
-      <div className="w-full">
+    <Link href={href} className="flex flex-col flex-wrap justify-center transition duration-500 ease-in-out transform hover:scale-105">
+      <div className="block">
         <Image
           src={image}
-          width={1000}
+          alt="Menu Home Page"
           height={1000}
-          alt="Elementary Bar Menu"
-          className="w-100 relative"
+          width={1000}
+          priority
         />
       </div>
 
-      <div className="py-5">
-        <Link
-          href={href}
-          className="text-3xl underline underline-offset-4 text-black hover:text-black"
-        >
+      <div className="pt-20px pb-30px">
+        <h3 className="text-heading underline decoration-2 underline-offset-4 text-black ">
           {hrefTitle}
-        </Link>
+        </h3>
       </div>
-    </div>
+    </Link>
   );
 }
 

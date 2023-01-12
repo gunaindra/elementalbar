@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -14,6 +16,25 @@ module.exports = {
         black: "#050505",
         darkGreen: "#383C2E",
         brown: "#7E552B",
+      },
+      fontSize: {
+        heading: ["30pt", { lineHeight: "46pt" }],
+        CTANavbar: ["50pt", { lineHeight: "53pt" }],
+        ...defaultTheme.fontSize,
+      },
+      spacing: {
+        "10px": "10px",
+        "20px": "20px",
+        "30px": "30px",
+        "40px": "40px",
+        "50px": "50px",
+        "60px": "60px",
+        "70px": "70px",
+        "80px": "80px",
+        "90px": "90px",
+        "100px": "100px",
+        "150px": "150px",
+        "200px": "200px",
       },
     },
   },

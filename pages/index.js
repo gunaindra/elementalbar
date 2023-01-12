@@ -4,7 +4,7 @@ import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <NextSeo
         title={siteData.siteName}
         description={siteData.description}
@@ -18,7 +18,7 @@ export default function Home() {
       />
 
       <Menu />
-    </>
+    </div>
   );
 }
 

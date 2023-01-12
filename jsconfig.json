@@ -6,6 +6,7 @@
       // penggunaan komponen / helpers "@/components/namaComponents"
       "@/components/*": ["components/*"],
       "@/layouts/*": ["layouts/*"],
+      "@/contexts/*": ["contexts/*"],
       "@/hook/*": ["hook/*"],
       "@/data/*": ["data/*"],
       "@/icon/*": ["icon/*"],

@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 /* Fonts */
-@import url("/assets/fonts/Chap-Regular.woff");
+@layer base {
+  @font-face {
+    font-family: Chap-Regular;
+    src: url("/assets/fonts/Chap-Regular.woff") format("woff");
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -12,12 +17,4 @@
   font-family: "Chap-Regular", Serif;
 }
 
-body {
-  background-color: #d2d1cf;
-}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
