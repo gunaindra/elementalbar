@@ -17,4 +17,25 @@
   font-family: "Chap-Regular", Serif;
 }
 
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
 
+.swiper-slide > .image-card-1 {
+  height: 100%;
+}
+
+.swiper-slide > .image-card-2 {
+  height: 100%;
+}
+
+.swiper-slide > .image-card-3 {
+  height: 100%;
+}
+
+.swiper-slide > .image-card-4 {
+  height: 100%;
+}

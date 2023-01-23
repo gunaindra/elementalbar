@@ -3,6 +3,7 @@ import Head from "next/head";
 import LandingLayout from "@/layouts/LandingLayout";
 
 import "@/styles/globals.css";
+
 import { AppWrapperContext } from "@/contexts/AppContext";
 
 const layouts = {

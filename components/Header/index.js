@@ -1,16 +1,34 @@
-import { useAppContext } from "@/contexts/AppContext";
 import Image from "next/image";
 import Link from "next/link";
 
-function NavbarComponent() {
+import { useAppContext } from "@/contexts/AppContext";
+
+function Header() {
   const { navbar: navbarContext } = useAppContext();
 
   return (
     <>
-      <div className="min-h-150px w-full">
+      {/* Desktop Header */}
+      <div className="min-h-150px w-full fixed z-10 invisible hidden md:visible md:block">
+        <div className="flex flex-row justify-end mx-70px py-20px">
+          <Link className="cursor-pointer" href={"/"}>
+            <div className="block">
+              <Image
+                src={"/assets/svg/main-logo.svg"}
+                alt="Logo"
+                height={150}
+                width={150}
+              />
+            </div>
+          </Link>
+        </div>
+      </div>
+
+      {/* Mobile Header */}
+      <div className="min-h-150px w-full z-20 visible block md:invisible md:hidden">
         <div className="flex flex-row justify-between mx-7 py-10px lg:py-30px">
           <Link className="cursor-pointer" href={"/"}>
-            <div className="block -ml-4 ">
+            <div className="block -ml-4">
               <Image
                 src={"/assets/svg/main-logo.svg"}
                 alt="Logo"
@@ -40,4 +58,4 @@ function NavbarComponent() {
   );
 }
 
-export default NavbarComponent;
+export default Header;

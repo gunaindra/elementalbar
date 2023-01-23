@@ -4,11 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body className="bg-grey ">
-        <div class="flex flex-col h-screen">
-          <Main />
-          <NextScript />
-        </div>
+      <body className="bg-grey min-h-screen">
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );
