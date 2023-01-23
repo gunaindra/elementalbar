@@ -1,20 +1,25 @@
 import { useAppContext } from "@/contexts/AppContext";
 
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import FullScreenNavbar from "@/components/Navbar/FullScreenNavbar";
+import Header from "@/components/Header";
+import Menu from "@/components/Menu";
+import Pattern from "@/components/Pattern";
+import FullScreenNavbar from "@/components/Navbar/FullScreenNabvar";
 
 function LandingLayout({ children }) {
   const { navbar: navbarContext } = useAppContext();
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
       <FullScreenNavbar />
 
       <div className={`${navbarContext.isShowNavbar ? "hidden" : ""}`}>
-        <Navbar />
+        <Header />
+        <Menu />
         <main>{children}</main>
-        <Footer />
+
+        {/* <div className="mt-20px sm:visible md:invisible md:hidden">
+        <Pattern />
+      </div> */}
       </div>
     </div>
   );

@@ -1,29 +1,17 @@
-import CardMenu from "@/components/CardMenu";
+import Link from "next/link";
 
 function Menu() {
   return (
-    <div className="grid lg:grid-cols-2 print:grid-cols-2 gap-8 mx-10 pb-90px">
-      <CardMenu
-        image="/assets/images/eb-web-story.webp"
-        href={"/story"}
-        hrefTitle="Story"
-      />
-      <CardMenu
-        image="/assets/images/eb-web-booking.webp"
-        href={"/booking"}
-        hrefTitle="Book a seat"
-      />
-      <CardMenu
-        image="/assets/images/eb-web-shop.webp"
-        href={"/shop"}
-        hrefTitle="Go to shop"
-      />
-      <CardMenu
-        image="/assets/images/eb-web-events.webp"
-        href={"/events"}
-        hrefTitle="Events"
-      />
-    </div>
+    <>
+      <ul className="sticky top-[75vh] ml-70px z-30 invisible hidden md:visible md:block">
+        <li className="text-menu hover:text-brown mb-2">
+          <Link href={"/"}>Home</Link>
+        </li>
+        <li className="text-menu hover:text-brown mb-2">
+          <Link href={"/booking"}>Booking</Link>
+        </li>
+      </ul>
+    </>
   );
 }
 
