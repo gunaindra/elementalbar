@@ -17,7 +17,9 @@ export default function Home() {
         }}
       />
 
-      <SwiperCard />
+      <div className="mb-100px">
+        <SwiperCard />
+      </div>
     </div>
   );
 }
