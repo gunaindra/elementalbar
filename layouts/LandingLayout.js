@@ -3,7 +3,7 @@ import { useAppContext } from "@/contexts/AppContext";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Pattern from "@/components/Pattern";
-import FullScreenNavbar from "@/components/Navbar/FullScreenNabvar";
+import FullScreenNavbar from "@/components/Navbar/FullScreenNavbar";
 
 function LandingLayout({ children }) {
   const { navbar: navbarContext } = useAppContext();

@@ -1,4 +1,5 @@
 import SwiperCard from "@/components/SwiperCard";
+
 import siteData from "@/data/site";
 import { NextSeo } from "next-seo";
 
