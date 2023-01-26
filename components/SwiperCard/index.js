@@ -47,10 +47,11 @@ function SwiperCarousel() {
   return (
     <>
       <Swiper
-        className="w-300px h-300px md:w-600px md:h-600px"
+        className="h-full w-full md:w-600px md:h-600px"
         effect={"cards"}
         followFinger={true}
         grabCursor={false}
+        speed={500}
         onActiveIndexChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
         }}

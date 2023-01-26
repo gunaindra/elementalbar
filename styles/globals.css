@@ -24,18 +24,26 @@
   border: none;
 }
 
+.swiper-slide > .swiper-slide-shadow {
+  background: none !important;
+}
+
 .swiper-slide > .image-card-1 {
+  width: 100%;
   height: 100%;
 }
 
 .swiper-slide > .image-card-2 {
+  width: 100%;
   height: 100%;
 }
 
 .swiper-slide > .image-card-3 {
+  width: 100%;
   height: 100%;
 }
 
 .swiper-slide > .image-card-4 {
+  width: 100%;
   height: 100%;
 }

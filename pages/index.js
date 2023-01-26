@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <NextSeo
         title={siteData.siteName}
         description={siteData.description}
@@ -18,7 +18,7 @@ export default function Home() {
         }}
       />
 
-      <div className="mb-100px">
+      <div className="mb-100px mx-10 mt-20 md:mx-0 md:mt-0">
         <SwiperCard />
       </div>
     </div>
