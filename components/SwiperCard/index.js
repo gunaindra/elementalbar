@@ -51,7 +51,7 @@ function SwiperCarousel() {
         effect={"cards"}
         followFinger={true}
         grabCursor={false}
-        speed={500}
+        speed={1200}
         onActiveIndexChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
         }}
