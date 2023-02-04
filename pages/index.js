@@ -1,11 +1,11 @@
-import SwiperCard from "@/components/SwiperCard";
+import StackCard from "@/components/StackCard";
 
 import siteData from "@/data/site";
 import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
+    <div>
       <NextSeo
         title={siteData.siteName}
         description={siteData.description}
@@ -19,7 +19,7 @@ export default function Home() {
       />
 
       <div className="mb-100px mx-10 mt-20 md:mx-0 md:mt-0">
-        <SwiperCard />
+        <StackCard />
       </div>
     </div>
   );
