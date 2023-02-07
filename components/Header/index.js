@@ -9,7 +9,7 @@ function Header() {
   return (
     <>
       {/* Desktop Header */}
-      <div className="min-h-150px w-full fixed z-10 invisible hidden md:visible md:block">
+      <div className="min-h-150px w-full fixed z-1 invisible hidden md:visible md:block">
         <div className="flex flex-row justify-end mx-70px py-20px">
           <Link className="cursor-pointer" href={"/"}>
             <div className="block">

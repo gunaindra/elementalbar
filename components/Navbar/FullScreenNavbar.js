@@ -7,7 +7,7 @@ function FullScreenNavbar({ isShow }) {
 
   return (
     <div
-      className={`h-full fixed w-full bg-brown transition-opacity duration-300 ease-out overflow-y-auto ${
+      className={`h-full  fixed w-full bg-brown transition-opacity duration-300 ease-out overflow-y-auto ${
         navbarContext.isShowNavbar ? "opacity-100" : "opacity-0"
       }`}
     >

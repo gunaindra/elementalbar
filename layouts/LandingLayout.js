@@ -9,7 +9,7 @@ function LandingLayout({ children }) {
   const { navbar: navbarContext } = useAppContext();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-100">
       <FullScreenNavbar />
 
       <div className={`${navbarContext.isShowNavbar ? "hidden" : ""}`}>
@@ -18,8 +18,8 @@ function LandingLayout({ children }) {
         <main>{children}</main>
 
         {/* <div className="mt-20px sm:visible md:invisible md:hidden">
-        <Pattern />
-      </div> */}
+          <Pattern />
+        </div> */}
       </div>
     </div>
   );

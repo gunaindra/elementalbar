@@ -18,7 +18,7 @@ module.exports = {
         brown: "#7E552B",
       },
       fontSize: {
-        menu: ["25pt", { lineHeight: "27pt" }],
+        menu: ["20pt", { lineHeight: "25pt" }],
         heading: ["30pt", { lineHeight: "46pt" }],
         CTANavbar: ["50pt", { lineHeight: "53pt" }],
         ...defaultTheme.fontSize,
@@ -36,6 +36,7 @@ module.exports = {
         "100px": "100px",
         "150px": "150px",
         "200px": "200px",
+        "250px": "250px",
         "300px": "300px",
         "350px": "350px",
         "400px": "400px",
