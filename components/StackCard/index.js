@@ -43,7 +43,7 @@ function StackCard() {
 
   return (
     <div>
-      <TransitionGroup className="flex items-center justify-center h-screen relative">
+      <TransitionGroup className="flex pt-5 md:pt-0 lg:pt-0 xl:pt-0 sm:items-start md:items-center lg:items-center justify-center top-0 h-screen z-40 relative">
         {listAssets
           .sort((a, b) => b.orders - a.orders)
           .map((asset, index) => {

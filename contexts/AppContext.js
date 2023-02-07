@@ -5,14 +5,24 @@ const AppContext = createContext();
 export function AppWrapperContext({ children }) {
   const [isShowNavbar, setIsShowNavbar] = useState(false);
 
+  const [activeCard, setActiveCard] = useState("");
+
   const toggleShowNavbar = () => {
     setIsShowNavbar((prevState) => !prevState);
+  };
+
+  const handleSetActiveCard = (value) => {
+    setActiveCard(value);
   };
 
   let state = {
     navbar: {
       isShowNavbar: isShowNavbar,
       toggleShowNavbar,
+    },
+    card: {
+      activeCard,
+      handleSetActiveCard,
     },
   };
 

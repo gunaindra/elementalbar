@@ -2,8 +2,16 @@ import { useEffect, useState } from "react";
 
 import { CSSTransition } from "react-transition-group";
 
+import { useAppContext } from "@/contexts/AppContext";
+
+import { useRouter } from "next/router";
+
 function StackCardItem({ asset, index }) {
+  const router = useRouter();
+
   const [isMounted, setIsMounted] = useState(false);
+
+  const { card: cardContext } = useAppContext();
 
   useEffect(() => {
     setIsMounted(true);
@@ -20,6 +28,21 @@ function StackCardItem({ asset, index }) {
       classNames={`stack-image stack-image-item-${asset.orders}`}
     >
       <img
+        style={{
+          zIndex: cardContext.activeCard?.orders == asset.orders ? 1001 : index,
+        }}
+        onMouseEnter={() => {
+          cardContext.handleSetActiveCard({ ...asset, onHover: true });
+        }}
+        onMouseLeave={() => {
+          cardContext.handleSetActiveCard({
+            ...cardContext.activeCard,
+            onHover: false,
+          });
+        }}
+        onClick={() => {
+          router.push(asset.href);
+        }}
         ref={asset.nodeRef}
         className={`stack-image stack-image-${asset.orders}`}
         src={asset.src}
