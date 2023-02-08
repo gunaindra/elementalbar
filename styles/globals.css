@@ -54,6 +54,26 @@
   cursor: pointer;
 }
 
+.drop-cap {
+  font-size: 30px;
+  padding-right: 2px
+}
+
+.story-text-appear {
+  opacity: 0;
+  transform: translate(0, 50px);
+}
+
+.story-text-appear-active {
+  opacity: 0;
+}
+
+.story-text-appear-done {
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out, transform 1200ms;
+  transform: translate(0, 0);
+}
+
 @media only screen and (max-width: 600px) {
   /* Stack Card */
   .stack-image-1 {
@@ -150,7 +170,7 @@
   }
 
   .sticky-bottom {
-    position: "sticky" !important;
+    position: "absolute" !important;
     bottom: 0;
     right: 0;
   }
