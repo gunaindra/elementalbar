@@ -61,8 +61,11 @@ export default function Story() {
                 </div>
               </div>
 
-              <div className="hidden md:block text-sm pb-2">
-                <p className="sm:mb-1 md:mb-5 text-sm">
+              <div className="hidden md:grid grid-cols-12 text-sm pb-2">
+                <div className="col-span-1 mb-5">
+                  <img src="/assets/images/story-invitation.png" width={60} alt="story" />
+                </div>
+                <p className="mb-5 text-sm col-span-11 ml-5">
                   <span className="drop-cap">A</span> hidden portal to a realm
                   of flavor, crafts, traditions and heritage. Carefully crafted
                   and curated beverages, from customized cocktail to natural
