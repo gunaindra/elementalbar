@@ -44,8 +44,8 @@ export default function Story() {
             timeout={200}
             classNames={`story-text`}
           >
-            <div className="story-text">
-              <div className="flex justify-between items-center pb-2 md:hidden">
+            <div className="story-text ">
+              <div className="flex justify-between items-center pb-4 md:hidden">
                 <div className="w-3/5 h-200px">
                   <img src="/assets/images/story-invitation.png" alt="story" />
                 </div>
@@ -61,30 +61,58 @@ export default function Story() {
                 </div>
               </div>
 
-              <div className="hidden md:block text-sm pb-2">
-                <p className="sm:mb-1 md:mb-5 text-sm">
-                  <span className="drop-cap">A</span> hidden portal to a realm
-                  of flavor, crafts, traditions and heritage. Carefully crafted
-                  and curated beverages, from customized cocktail to natural
-                  wines, and delicate dishes will take you on a journey through
-                  tastes, ingredients and culture.
+              <div className="block md:hidden ">
+                <p className="text-sm pb-2 mb-5">
+                  <span className="drop-cap">Our </span> seasoned mixologists,
+                  chefs, brewers and curators will serve an array of rare
+                  crafted drinks and dishes accompanied by a  crisp story
+                  of the ingredients and the history behind each course. 
+                  The experience is designed to indulge you with thrilling
+                  servings  and a glimpse in the history and culture
+                  behind the recipes.
+                </p>
+
+                <p className="text-sm pb-2 mb-5">
+                  <span className="drop-cap">The</span> themes evolve regularly,
+                  offering a diverse pallet of drinks, dishes,
+                  experiences and anecdotes.
                 </p>
               </div>
 
-              <p className="sm:mb-2 md:mb-2 sm:text-sm md:text-sm pb-2">
-                <span className="drop-cap">Our</span> seasoned mixologists,
-                chefs, brewers and curators will serve an array of rare, crafted
-                drinks and dishes accompanied by a crisp story of the
-                ingredients and the history behind each course. The experience
-                is designed to indulge you with thrilling servings and a glimpse
-                in the history and culture behind the recipes.
-              </p>
+              <div className="hidden md:grid md:grid-cols-12 md:gap-1">
+                <div className="col-span-4 flex justify-center items-center">
+                  <img src="/assets/images/story-invitation.png" alt="story" />
+                </div>
+                <div className="col-span-8 text-end">
+                  <div className="text-sm pb-2">
+                    <p className="mb-2 text-sm">
+                      <span className="drop-cap">A</span> hidden portal to a
+                      realm of flavor, crafts, traditions and heritage. <br />
+                      Carefully crafted and curated beverages, from customized
+                      cocktail to <br /> natural wines, and delicate dishes will
+                      take you on a journey through <br /> tastes, ingredients
+                      and culture.
+                    </p>
+                  </div>
 
-              <p className="sm:mb-2 md:mb-2 sm:text-sm md:text-sm pb-2">
-                <span className="drop-cap">The</span> themes evolve regularly,
-                offering a diverse pallet of drinks, dishes, experiences and
-                anecdotes.
-              </p>
+                  <p className="sm:mb-2 md:mb-2 sm:text-sm md:text-sm pb-2">
+                    <span className="drop-cap">Our</span> seasoned mixologists,
+                    chefs, brewers and curators will serve an array of rare
+                    crafted drinks and dishes accompanied by a <br /> crisp
+                    story of the ingredients and the history behind each course.{" "}
+                    <br />
+                    The experience is designed to indulge you with thrilling
+                    servings <br /> and a glimpse in the history and culture
+                    behind the recipes.
+                  </p>
+
+                  <p className="sm:mb-2 md:mb-2 sm:text-sm md:text-sm pb-2">
+                    <span className="drop-cap">The</span> themes evolve
+                    regularly, offering a diverse pallet <br /> of drinks,
+                    dishes, experiences and anecdotes.
+                  </p>
+                </div>
+              </div>
             </div>
           </CSSTransition>
         </TransitionGroup>
