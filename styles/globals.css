@@ -56,7 +56,7 @@
 
 .drop-cap {
   font-size: 30px;
-  padding-right: 2px
+  padding-right: 2px;
 }
 
 .story-text-appear {
@@ -78,33 +78,33 @@
   /* Stack Card */
   .stack-image-1 {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     transform: translate(0, 0);
     z-index: 91;
   }
 
   .stack-image-2 {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    transform: translate(0, 225px);
+    width: 300px;
+    height: 300px;
+    transform: translate(0, 325px);
     z-index: 81;
   }
 
   .stack-image-3 {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    transform: translate(0px, 450px);
+    width: 300px;
+    height: 300px;
+    transform: translate(0px, 650px);
     z-index: 71;
   }
 
   .stack-image-4 {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    transform: translate(0, 675px);
+    width: 300px;
+    height: 300px;
+    transform: translate(0, 975px);
     z-index: 61;
   }
 
@@ -126,7 +126,7 @@
 
   .stack-image-item-2-enter {
     opacity: 0;
-    transform: translate(-50px, 225px);
+    transform: translate(-50px, 325px);
   }
 
   .stack-image-item-2-enter-active {
@@ -136,12 +136,12 @@
   .stack-image-item-2-enter-done {
     opacity: 1;
     transition: opacity 1000ms ease-in-out, transform 1200ms;
-    transform: translate(0, 225px);
+    transform: translate(0, 325px);
   }
 
   .stack-image-item-3-enter {
     opacity: 0;
-    transform: translate(50px, 450px);
+    transform: translate(50px, 650px);
   }
 
   .stack-image-item-3-enter-active {
@@ -151,12 +151,12 @@
   .stack-image-item-3-enter-done {
     opacity: 1;
     transition: opacity 1000ms ease-in-out, transform 1200ms;
-    transform: translate(0px, 450px);
+    transform: translate(0px, 650px);
   }
 
   .stack-image-item-4-enter {
     opacity: 0;
-    transform: translate(-50px, 675px);
+    transform: translate(-50px, 975px);
   }
 
   .stack-image-item-4-enter-active {
@@ -166,7 +166,7 @@
   .stack-image-item-4-enter-done {
     opacity: 1;
     transition: opacity 1000ms ease-in-out, transform 1200ms;
-    transform: translate(0, 675px);
+    transform: translate(0, 975px);
   }
 
   .sticky-bottom {
@@ -315,4 +315,49 @@
     bottom: 0;
     right: 0;
   }
+}
+
+.instagram-gallery {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 600px) {
+  .instagram-gallery {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .instagram-item {
+    -webkit-box-flex: 0;
+    flex: 0 0 calc(100% / 1 - 50px);
+    margin: 5px;
+    display: block;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .instagram-item {
+    -webkit-box-flex: 0;
+    flex: 0 0 calc(100% / 3 - 10px);
+    margin: 5px;
+    display: block;
+    position: relative;
+  }
+}
+
+.instagram-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pagination {
+  display: block;
+  margin: 0 auto;
+  padding: 2em;
 }
