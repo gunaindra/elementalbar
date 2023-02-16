@@ -26,7 +26,7 @@ export default function Feed() {
           <p>Through our official social media on instagram</p>
         </div>
 
-        <InstagramGallery accessToken="IGQVJVbUhidWN4dlRvQ283bURyTnZADTExyMG41dXYzeGRtN3ppRnJHMmpQMFBjd1ljSTQwSU56eU4tREZA4M1o0bmFMVXBrSUF2WFZAzb2pQTFZAoel96b3Y2WlgzVno1ME92djk0ZAjF2VEtkYkdCV21MRwZDZD" count={24}/>
+        <InstagramGallery accessToken={process.env.ACCESS_TOKEN} count={24}/>
       </div>
     </div>
   );
