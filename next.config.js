@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   env: {
     BASE_URL: process.env.BASE_URL,
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
   },
 
   webpack(config) {
