@@ -22,7 +22,7 @@ export default function Feed() {
 
       <div className="md:container md:mx-auto text-center">
         <div className="text-center mb-5">
-          <h1 className="text-heading">Stay Connected With Us!</h1>
+          <h1 className="text-heading">Stay Connected With Our Events!</h1>
           <p>Through our official social media on instagram</p>
         </div>
 

@@ -27,7 +27,7 @@ function StackCard() {
       orders: 3,
       alt: "eb-web-shop",
       src: "/assets/images/eb-web-shop.webp",
-      href: "/shop",
+      href: "https://interior.elementsconcept.com",
       title: "Shop",
       nodeRef: createRef(null),
     },
