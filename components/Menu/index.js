@@ -23,6 +23,14 @@ function Menu() {
         <li className="w-35 text-menu mb-2 ">
           <Link
             className="hover:text-brown hover:underline hover:decoration-2 hover:underline-offset-4"
+            href={"https://interior.elementsconcept.com"}
+          >
+            Shop
+          </Link>
+        </li>
+        <li className="w-35 text-menu mb-2 ">
+          <Link
+            className="hover:text-brown hover:underline hover:decoration-2 hover:underline-offset-4"
             href={"/booking"}
           >
             Booking
@@ -31,9 +39,9 @@ function Menu() {
         <li className="w-35 text-menu mb-2 ">
           <Link
             className="hover:text-brown hover:underline hover:decoration-2 hover:underline-offset-4"
-            href={"/feed"}
+            href={"/events"}
           >
-            Latest Feed
+            Events
           </Link>
         </li>
       </ul>
