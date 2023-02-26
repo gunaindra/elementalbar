@@ -1,21 +1,45 @@
 import Head from "next/head";
 
+import { useEffect } from "react";
+
 import LandingLayout from "@/layouts/LandingLayout";
 
 import "@/styles/globals.css";
 
 import { AppWrapperContext } from "@/contexts/AppContext";
 
+import { useRouter } from "next/router";
+
 const layouts = {
   LandingLayout: LandingLayout,
 };
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  
   const Layout = Component.layout
     ? layouts[Component.layout]
     : ({ children }) => {
         return <>{children}</>;
       };
+
+  const backgroundImgURL = (path) => {
+    if (path == "/") {
+      return "/assets/pattern/pattern-1.svg";
+    } else if (path == "/story") {
+      return "/assets/pattern/pattern-2.svg";
+    } else if (path == "/events") {
+      return "/assets/pattern/pattern-3.svg";
+    } else {
+      return "/assets/pattern/pattern-1.svg";
+    }
+  };
+
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${backgroundImgURL(
+      router.pathname
+    )})`;
+  }, [router.pathname]);
 
   return (
     <>
