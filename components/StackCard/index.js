@@ -17,18 +17,18 @@ function StackCard() {
     },
     {
       orders: 2,
-      alt: "web-story",
-      src: "/assets/images/eb-web-story.webp",
-      href: "/story",
-      title: "Story",
-      nodeRef: createRef(null),
-    },
-    {
-      orders: 3,
       alt: "web-booking",
       src: "/assets/images/eb-web-booking.webp",
       href: "/booking",
       title: "Booking",
+      nodeRef: createRef(null),
+    },
+    {
+      orders: 3,
+      alt: "web-story",
+      src: "/assets/images/eb-web-story.webp",
+      href: "/story",
+      title: "Story",
       nodeRef: createRef(null),
     },
     {
