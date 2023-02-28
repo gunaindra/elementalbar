@@ -9,6 +9,14 @@ function StackCard() {
   const [listAssets, setListAssets] = useState(() => [
     {
       orders: 1,
+      alt: "eb-web-shop",
+      src: "/assets/images/eb-web-shop.webp",
+      href: "https://interior.elementsconcept.com",
+      title: "Shop",
+      nodeRef: createRef(null),
+    },
+    {
+      orders: 2,
       alt: "web-story",
       src: "/assets/images/eb-web-story.webp",
       href: "/story",
@@ -16,19 +24,11 @@ function StackCard() {
       nodeRef: createRef(null),
     },
     {
-      orders: 2,
+      orders: 3,
       alt: "web-booking",
       src: "/assets/images/eb-web-booking.webp",
       href: "/booking",
       title: "Booking",
-      nodeRef: createRef(null),
-    },
-    {
-      orders: 3,
-      alt: "eb-web-shop",
-      src: "/assets/images/eb-web-shop.webp",
-      href: "https://interior.elementsconcept.com",
-      title: "Shop",
       nodeRef: createRef(null),
     },
     {
