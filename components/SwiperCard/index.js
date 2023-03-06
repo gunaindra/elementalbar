@@ -15,7 +15,7 @@ const listAssets = [
     alt: "web-story",
     src: "/assets/images/eb-web-story.webp",
     href: "/story",
-    title: "Story",
+    title: "Shop",
   },
   {
     alt: "web-booking",
@@ -26,8 +26,8 @@ const listAssets = [
   {
     alt: "eb-web-shop",
     src: "/assets/images/eb-web-shop.webp",
-    href: "/shop",
-    title: "Shop",
+    href: "https://interior.elementsconcept.com",
+    title: "Story",
   },
   {
     alt: "web-events",
@@ -78,11 +78,11 @@ function SwiperCarousel() {
             </SwiperSlide>
           );
         })}
-        <h6 className="text-center text-menu mt-5 underline decoration-2 underline-offset-4 text-black ">
+        {/* <h6 className="text-center text-menu mt-5 underline decoration-2 underline-offset-4 text-black ">
           <Link href={listAssets[activeIndex].href}>
             {listAssets[activeIndex].title}
           </Link>
-        </h6>
+        </h6> */}
       </Swiper>
     </>
   );
