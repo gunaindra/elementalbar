@@ -362,3 +362,22 @@
   margin: 0 auto;
   padding: 2em;
 }
+
+
+.booking-lines-border {
+  border-radius: 1rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.time-wrapper {
+  max-width: 512px;
+}
+
+.status-round {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+}

@@ -7,7 +7,7 @@ import { InstagramGallery } from "instagram-gallery";
 
 export default function Feed() {
   return (
-    <div className="min-h-screen relative sm:px-0  md:px-250px ">
+    <div className="min-h-screen relative sm:px-0 md:px-250px ">
       <NextSeo
         title={siteData.siteName}
         description={siteData.description}

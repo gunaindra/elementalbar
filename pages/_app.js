@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import LandingLayout from "@/layouts/LandingLayout";
 
 import "@/styles/globals.css";
+import "@/styles/calendar.css";
 
 import { AppWrapperContext } from "@/contexts/AppContext";
 
@@ -23,23 +24,23 @@ export default function App({ Component, pageProps }) {
         return <>{children}</>;
       };
 
-  const backgroundImgURL = (path) => {
-    if (path == "/") {
-      return "/assets/pattern/pattern-1.svg";
-    } else if (path == "/story") {
-      return "/assets/pattern/pattern-2.svg";
-    } else if (path == "/events") {
-      return "/assets/pattern/pattern-3.svg";
-    } else {
-      return "/assets/pattern/pattern-1.svg";
-    }
-  };
+  // const backgroundImgURL = (path) => {
+  //   if (path == "/") {
+  //     return "/assets/pattern/pattern-1.svg";
+  //   } else if (path == "/story") {
+  //     return "/assets/pattern/pattern-2.svg";
+  //   } else if (path == "/events") {
+  //     return "/assets/pattern/pattern-3.svg";
+  //   } else {
+  //     return "/assets/pattern/pattern-1.svg";
+  //   }
+  // };
 
-  useEffect(() => {
-    document.body.style.backgroundImage = `url(${backgroundImgURL(
-      router.pathname
-    )})`;
-  }, [router.pathname]);
+  // useEffect(() => {
+  //   document.body.style.backgroundImage = `url(${backgroundImgURL(
+  //     router.pathname
+  //   )})`;
+  // }, [router.pathname]);
 
   return (
     <>
