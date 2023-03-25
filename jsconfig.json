@@ -7,6 +7,7 @@
       "@/components/*": ["components/*"],
       "@/layouts/*": ["layouts/*"],
       "@/contexts/*": ["contexts/*"],
+      "@/services/*": ["services/*"],
       "@/hook/*": ["hook/*"],
       "@/data/*": ["data/*"],
       "@/icon/*": ["icon/*"],

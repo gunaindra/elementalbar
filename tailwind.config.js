@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        metal: "#1F353E",
         white: "#FFFFFF",
         grey: "#D2D1CF",
         darkGrey: "#2C2C2C",
@@ -45,5 +46,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

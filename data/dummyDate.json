@@ -1,0 +1,188 @@
+[
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 1,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 2,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 3,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 4,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 5,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 6,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 7,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 8,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 9,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 10,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 11,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 12,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 13,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 14,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 15,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 16,
+    "status": "Filled"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 17,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 18,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 19,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 20,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 21,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 22,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 23,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 24,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 25,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 26,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 27,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 28,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 29,
+    "status": "Booked"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 30,
+    "status": "Available"
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "date": 31,
+    "status": "Booked"
+  }
+]
