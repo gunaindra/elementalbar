@@ -59,7 +59,7 @@ function BookingCalendar() {
         },
       }}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form className="sm:w-auto lg:w-500px" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-2">
           <label htmlFor="name" className="block">
             <span className="text-base">Name</span>
@@ -120,8 +120,8 @@ function BookingCalendar() {
           />
         </div>
 
-        <div className="flex justify-between items-center mt-5 w-500px">
-          <div>
+        <div className="flex justify-between items-center mt-5">
+          <div className="mr-1">
             <button
               onClick={handleBack}
               type="button"
@@ -130,7 +130,7 @@ function BookingCalendar() {
               Back
             </button>
           </div>
-          <div>
+          <div className="ml-1">
             <button
               disabled={isLoadingSubmit}
               type="submit"
