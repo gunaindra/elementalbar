@@ -110,6 +110,24 @@ function BookingCalendar() {
         minDate={new Date()}
         defaultValue={null}
         onClickDay={handleSelectedDate}
+        onClickMonth={(value) => {
+          getBookingByMonth({
+            date: formatDateMoments(
+              new Date(value).toLocaleDateString(),
+              "YYYY-MM"
+            ),
+          });
+        }}
+        onActiveStartDateChange={({ action, activeStartDate, value, view }) => {
+          setSelectedDate(null)
+          setListBookingTime(null)
+          getBookingByMonth({
+            date: formatDateMoments(
+              new Date(activeStartDate).toLocaleDateString(),
+              "YYYY-MM"
+            ),
+          });
+        }}
         value={selectedDate}
         prevLabel={"‹"}
         nextLabel={"›"}
@@ -120,9 +138,9 @@ function BookingCalendar() {
             // Check is Time Passed
             const isPassed =
               Date.parse(
-                formatDateMoments(listBookingDate[date.getDate() - 1].fulldate)
+                formatDateMoments(listBookingDate[date.getDate() - 1]?.fulldate)
               ) -
-                Date.parse(new Date()) <=
+                Date.parse(new Date(Date.now() - 86400000)) <=
               0;
 
             // If Current view is By Every 1 Month (Day) && Time Not Passed
