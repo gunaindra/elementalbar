@@ -9,8 +9,12 @@ import { useBookingContext } from "@/contexts/BookingContext";
 
 import { useForm } from "react-hook-form";
 
+import { useAppContext } from "@/contexts/AppContext";
+
 function BookingCalendar() {
   const { savedDate, toggleShowCalendar } = useBookingContext();
+
+  const { showToast } = useAppContext();
 
   const [isLoadingSubmit, setIsLoadingSubmit] = useState(false);
 
@@ -28,18 +32,21 @@ function BookingCalendar() {
     try {
       setIsLoadingSubmit(true);
       const response = await BookingServices.booking({
-        bookinglisttime_id: savedDate?.bookinglisttime_id,
+        seat_id: savedDate?.seat_id,
         name: data?.name,
         email: data?.email,
+        phone: data?.phone,
         message: data?.message,
       });
 
       if (response) {
         setIsLoadingSubmit(false);
         toggleShowCalendar();
+        showToast(`Booking Success, Please check email ${data?.email}`);
       }
     } catch (error) {
       setIsLoadingSubmit(false);
+      showToast(error?.response?.data?.message || error?.message);
     }
   };
 
@@ -65,6 +72,7 @@ function BookingCalendar() {
             <span className="text-base">Name</span>
           </label>
           <input
+            autoComplete={"off"}
             id="name"
             type="text"
             className="mt-1 block w-full rounded form-input bg-inherit focus:ring focus:ring-metal/50 focus:border-metal"
@@ -87,6 +95,7 @@ function BookingCalendar() {
             <span className="text-base">Email</span>
           </label>
           <input
+            autoComplete={"off"}
             id="email"
             type="email"
             className="mt-1 block w-full rounded form-input bg-inherit focus:ring focus:ring-metal/50 focus:border-metal"
@@ -109,10 +118,34 @@ function BookingCalendar() {
         </div>
 
         <div className="mb-2">
+          <label htmlFor="phone" className="block">
+            <span className="text-base">Phone</span>
+          </label>
+          <input
+            autoComplete={"off"}
+            id="phone"
+            type="tel"
+            className="mt-1 block w-full rounded form-input bg-inherit focus:ring focus:ring-metal/50 focus:border-metal"
+            placeholder="Enter Phone"
+            {...register("phone", {
+              required: {
+                value: true,
+                message: "Please enter phone",
+              },
+            })}
+          />
+
+          {errors?.phone ? (
+            <div className="pt-2 text-red-600">{errors.phone.message}</div>
+          ) : null}
+        </div>
+
+        <div className="mb-2">
           <label htmlFor="note" className="block">
             <span className="text-base">Note</span>
           </label>
           <textarea
+            autoComplete={"off"}
             id="note"
             rows={3}
             className="mt-1 block w-full rounded form-input bg-inherit focus:ring focus:ring-metal/50 focus:border-metal"

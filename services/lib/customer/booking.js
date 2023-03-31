@@ -2,11 +2,17 @@ import axiosClient from "@/services/axiosClient";
 
 export default {
   bookCheckByMonth({ date }) {
-    return axiosClient.get(`booking/list-date?date=${date}`);
+    return axiosClient.get(`booking/date/list?date=${date}`);
   },
 
   bookCheckByDate({ date }) {
-    return axiosClient.get(`booking/check-by-date?date=${date}`);
+    return axiosClient.get(`booking/time/list?date=${date}`);
+  },
+
+  bookCheckSeatById({ bookinglisttime_id }) {
+    return axiosClient.get(
+      `booking/seat/list?bookinglisttime_id=${bookinglisttime_id}`
+    );
   },
 
   bookCheckById({ id }) {
@@ -21,12 +27,13 @@ export default {
     });
   },
 
-  booking({ bookinglisttime_id, name, email, message }) {
+  booking({ seat_id, name, email, message, phone }) {
     return axiosClient.post("booking/booked", {
-      bookinglisttime_id,
+      seat_id,
       name,
       email,
       message,
+      phone,
     });
   },
 };

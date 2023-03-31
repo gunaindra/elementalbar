@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-import { useEffect } from "react";
-
 import LandingLayout from "@/layouts/LandingLayout";
 
 import "@/styles/globals.css";
@@ -11,13 +9,16 @@ import { AppWrapperContext } from "@/contexts/AppContext";
 
 import { useRouter } from "next/router";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const layouts = {
   LandingLayout: LandingLayout,
 };
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  
+
   const Layout = Component.layout
     ? layouts[Component.layout]
     : ({ children }) => {
@@ -59,6 +60,19 @@ export default function App({ Component, pageProps }) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </AppWrapperContext>
     </>
   );
