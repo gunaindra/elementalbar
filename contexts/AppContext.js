@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
+import { toast } from "react-toastify";
+
 const AppContext = createContext();
 
 export function AppWrapperContext({ children }) {
@@ -15,6 +17,19 @@ export function AppWrapperContext({ children }) {
     setActiveCard(value);
   };
 
+  const showToast = (message) => {
+    toast(message, {
+      position: "bottom-center",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   let state = {
     navbar: {
       isShowNavbar: isShowNavbar,
@@ -24,6 +39,7 @@ export function AppWrapperContext({ children }) {
       activeCard,
       handleSetActiveCard,
     },
+    showToast,
   };
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

@@ -8,6 +8,7 @@ import BookingServices from "@/services/lib/customer/booking";
 import { formatDateMoments } from "@/utils/momentDateFormat";
 
 import { useBookingContext } from "@/contexts/BookingContext";
+import { Armchair } from "tabler-icons-react";
 
 function BookingCalendar() {
   const { setSavedDate, toggleShowCalendar } = useBookingContext();
@@ -18,6 +19,9 @@ function BookingCalendar() {
   /* ------------------------------ Selected Time ------------------------------ */
   const [selectedTime, setSelectedTime] = useState(null);
 
+  /* ------------------------------ Selected Time ------------------------------ */
+  const [selectedSeat, setSelectedSeat] = useState(null);
+
   /* ------------------------------ Booking Date ------------------------------ */
   const [isLoadingBookingDate, setIsLoadingBookingDate] = useState(false);
   const [listBookingDate, setListBookingDate] = useState([]);
@@ -25,6 +29,10 @@ function BookingCalendar() {
   /* ------------------------------ Booking Time ------------------------------ */
   const [isLoadingBookingTime, setIsLoadingBookingTime] = useState(false);
   const [listBookingTime, setListBookingTime] = useState([]);
+
+  /* ------------------------------ Booking Time ------------------------------ */
+  const [isLoadingSeat, setIsLoadingSeat] = useState(false);
+  const [listSeat, setListSeat] = useState([]);
 
   const getBookingByMonth = useCallback(async ({ date }) => {
     try {
@@ -57,6 +65,23 @@ function BookingCalendar() {
     }
   }, []);
 
+  const getListSeat = useCallback(async ({ bookinglisttime_id }) => {
+    try {
+      setIsLoadingSeat(true);
+      const response = await BookingServices.bookCheckSeatById({
+        bookinglisttime_id,
+      });
+
+      if (response) {
+        setIsLoadingSeat(false);
+        const data = response?.data;
+        setListSeat(data);
+      }
+    } catch (error) {
+      setIsLoadingSeat(false);
+    }
+  });
+
   const handleSelectedDate = (value, event) => {
     setSelectedTime(null);
     setSelectedDate(value);
@@ -71,10 +96,16 @@ function BookingCalendar() {
 
   const handleSelectedTime = (value) => {
     setSelectedTime(value);
+    getListSeat({ bookinglisttime_id: value?.id });
+  };
+
+  const handleSelectedSeat = (value) => {
+    setSelectedSeat(value);
   };
 
   const handleNext = () => {
     const savedDate = {
+      seat_id: selectedSeat?.id,
       bookinglisttime_id: selectedTime?.id,
       date: selectedDate,
       time: selectedTime?.time,
@@ -92,7 +123,7 @@ function BookingCalendar() {
 
   return (
     <LoadingOverlay
-      active={isLoadingBookingDate || isLoadingBookingTime}
+      active={isLoadingBookingDate || isLoadingBookingTime || isLoadingSeat}
       spinner={<PuffLoader />}
       text={"Loading..."}
       styles={{
@@ -119,8 +150,8 @@ function BookingCalendar() {
           });
         }}
         onActiveStartDateChange={({ action, activeStartDate, value, view }) => {
-          setSelectedDate(null)
-          setListBookingTime(null)
+          setSelectedDate(null);
+          setListBookingTime(null);
           getBookingByMonth({
             date: formatDateMoments(
               new Date(activeStartDate).toLocaleDateString(),
@@ -146,14 +177,16 @@ function BookingCalendar() {
             // If Current view is By Every 1 Month (Day) && Time Not Passed
             if (view == "month" && !isPassed) {
               if (
-                listBookingDate[date.getDate() - 1].year ==
+                listBookingDate[date.getDate() - 1]?.year ==
                   date.getFullYear() &&
-                listBookingDate[date.getDate() - 1].month ===
+                listBookingDate[date.getDate() - 1]?.month ===
                   date.getMonth() + 1
               ) {
-                if (listBookingDate[date.getDate() - 1].can_book === 1) {
+                if (listBookingDate[date.getDate() - 1]?.can_book === 1) {
                   return <div className="mt-1 status-round bg-green-600"></div>;
-                } else if (listBookingDate[date.getDate() - 1].can_book !== 1) {
+                } else if (
+                  listBookingDate[date.getDate() - 1]?.can_book !== 1
+                ) {
                   return <div className="mt-1 status-round bg-red-600"></div>;
                 }
               }
@@ -164,11 +197,11 @@ function BookingCalendar() {
           if (Array.isArray(listBookingDate) && listBookingDate.length) {
             if (view == "month") {
               if (
-                listBookingDate[date.getDate() - 1].year ==
+                listBookingDate[date.getDate() - 1]?.year ==
                   date.getFullYear() &&
-                listBookingDate[date.getDate() - 1].month ===
+                listBookingDate[date.getDate() - 1]?.month ===
                   date.getMonth() + 1 &&
-                listBookingDate[date.getDate() - 1].can_book !== 1
+                listBookingDate[date.getDate() - 1]?.can_book !== 1
               ) {
                 return true;
               }
@@ -185,8 +218,9 @@ function BookingCalendar() {
       {!isLoadingBookingTime &&
       Array.isArray(listBookingTime) &&
       listBookingTime.length ? (
-        <>
-          <div className="flex flex-wrap justify-around time-wrapper mt-8">
+        <div className="mt-8">
+          <p className="text-center mb-1">Choose Time</p>
+          <div className="flex flex-wrap justify-around time-wrapper ">
             {listBookingTime.map((time) => {
               return (
                 <div key={time?.id} className="flex-1 px-1 my-2">
@@ -205,7 +239,7 @@ function BookingCalendar() {
               );
             })}
           </div>
-        </>
+        </div>
       ) : null}
 
       {!isLoadingBookingTime &&
@@ -215,7 +249,48 @@ function BookingCalendar() {
         <p className="mt-8">No availabilities.</p>
       ) : null}
 
-      {selectedTime ? (
+      {/* Loading Text for Seat */}
+      {isLoadingSeat && selectedTime ? (
+        <p className="mt-8 text-center">Loading...</p>
+      ) : null}
+
+      {!isLoadingSeat &&
+      selectedTime &&
+      Array.isArray(listSeat) &&
+      listSeat.length ? (
+        <div className="mt-8">
+          <p className="text-center mb-1 pb-2">Choose Seat</p>
+          <div className="grid grid-cols-4 gap-2 time-wrapper ">
+            {listSeat.map((seat, indexSeat) => {
+              return (
+                <div key={seat?.id} className="col-auto mb-2">
+                  <button
+                    disabled={seat?.status != 'available'}
+                    onClick={() => handleSelectedSeat(seat)}
+                    type="button"
+                    className={`d-flex flex-col justify-center items-center rounded-lg text-center p-1 w-80px ${
+                      seat?.id == selectedSeat?.id
+                        ? "bg-metal text-white border border-metabg-metal"
+                        : "border border-gray-600"
+                    }`}
+                  >
+                    <Armchair
+                      className={
+                        seat?.id == selectedSeat?.id
+                          ? "text-white"
+                          : "text-metal"
+                      }
+                    />
+                    {indexSeat + 1}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+
+      {selectedTime && selectedSeat ? (
         <div className="flex justify-center mt-5">
           <button
             onClick={handleNext}
