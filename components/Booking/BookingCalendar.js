@@ -8,7 +8,7 @@ import BookingServices from "@/services/lib/customer/booking";
 import { formatDateMoments } from "@/utils/momentDateFormat";
 
 import { useBookingContext } from "@/contexts/BookingContext";
-import { Armchair } from "tabler-icons-react";
+import { Armchair, ArmchairOff } from "tabler-icons-react";
 
 function BookingCalendar() {
   const { setSavedDate, toggleShowCalendar } = useBookingContext();
@@ -20,7 +20,7 @@ function BookingCalendar() {
   const [selectedTime, setSelectedTime] = useState(null);
 
   /* ------------------------------ Selected Time ------------------------------ */
-  const [selectedSeat, setSelectedSeat] = useState(null);
+  const [selectedSeat, setSelectedSeat] = useState([]);
 
   /* ------------------------------ Booking Date ------------------------------ */
   const [isLoadingBookingDate, setIsLoadingBookingDate] = useState(false);
@@ -100,12 +100,21 @@ function BookingCalendar() {
   };
 
   const handleSelectedSeat = (value) => {
-    setSelectedSeat(value);
+    const isIncluded =
+      selectedSeat.findIndex((seatId) => seatId == value) != -1 ? true : false;
+
+    if (isIncluded) {
+      setSelectedSeat((prevSeat) =>
+        prevSeat.filter((seatId) => seatId != value)
+      );
+    } else {
+      setSelectedSeat((prevSeat) => [...prevSeat, value]);
+    }
   };
 
   const handleNext = () => {
     const savedDate = {
-      seat_id: selectedSeat?.id,
+      seat_id: selectedSeat,
       bookinglisttime_id: selectedTime?.id,
       date: selectedDate,
       time: selectedTime?.time,
@@ -182,11 +191,9 @@ function BookingCalendar() {
                 listBookingDate[date.getDate() - 1]?.month ===
                   date.getMonth() + 1
               ) {
-                if (listBookingDate[date.getDate() - 1]?.can_book === 1) {
+                if (listBookingDate[date.getDate() - 1]?.status === "empty") {
                   return <div className="mt-1 status-round bg-green-600"></div>;
-                } else if (
-                  listBookingDate[date.getDate() - 1]?.can_book !== 1
-                ) {
+                } else if (listBookingDate[date.getDate() - 1]?.status !== 1) {
                   return <div className="mt-1 status-round bg-red-600"></div>;
                 }
               }
@@ -201,7 +208,7 @@ function BookingCalendar() {
                   date.getFullYear() &&
                 listBookingDate[date.getDate() - 1]?.month ===
                   date.getMonth() + 1 &&
-                listBookingDate[date.getDate() - 1]?.can_book !== 1
+                listBookingDate[date.getDate() - 1]?.status !== "empty"
               ) {
                 return true;
               }
@@ -225,15 +232,16 @@ function BookingCalendar() {
               return (
                 <div key={time?.id} className="flex-1 px-1 my-2">
                   <button
+                    disabled={time?.status == "full"}
                     onClick={() => handleSelectedTime(time)}
                     type="button"
                     className={`rounded-lg text-center p-1 w-80px ${
                       time?.id == selectedTime?.id
                         ? "bg-metal text-white border border-metabg-metal"
                         : "border border-gray-600"
-                    }`}
+                    } ${time?.status == "full" ? "opacity-40" : ""}`}
                   >
-                    {time?.available_at}
+                    {time?.status == "full" ? "Booked" : time?.available_at}
                   </button>
                 </div>
               );
@@ -265,23 +273,31 @@ function BookingCalendar() {
               return (
                 <div key={seat?.id} className="col-auto mb-2">
                   <button
-                    disabled={seat?.status != 'available'}
-                    onClick={() => handleSelectedSeat(seat)}
+                    disabled={seat?.status == "booked"}
+                    onClick={() => handleSelectedSeat(seat?.id)}
                     type="button"
                     className={`d-flex flex-col justify-center items-center rounded-lg text-center p-1 w-80px ${
-                      seat?.id == selectedSeat?.id
+                      selectedSeat.includes(seat?.id)
                         ? "bg-metal text-white border border-metabg-metal"
                         : "border border-gray-600"
-                    }`}
+                    } ${seat?.status == "booked" ? "opacity-40" : ""}`}
                   >
-                    <Armchair
-                      className={
-                        seat?.id == selectedSeat?.id
-                          ? "text-white"
-                          : "text-metal"
-                      }
-                    />
-                    {indexSeat + 1}
+                    <div className="flex justify-center items-center">
+                      {seat?.status == "booked" ? (
+                        <ArmchairOff className="text-metal" />
+                      ) : (
+                        <Armchair
+                          className={
+                            selectedSeat.includes(seat?.id)
+                              ? "text-white"
+                              : "text-metal"
+                          }
+                        />
+                      )}
+                    </div>
+                    <span className="text-center">
+                      {seat?.status == "booked" ? "Booked" : indexSeat + 1}
+                    </span>
                   </button>
                 </div>
               );
@@ -290,7 +306,7 @@ function BookingCalendar() {
         </div>
       ) : null}
 
-      {selectedTime && selectedSeat ? (
+      {selectedTime && selectedSeat.length ? (
         <div className="flex justify-center mt-5">
           <button
             onClick={handleNext}
