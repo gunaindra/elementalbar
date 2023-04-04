@@ -193,7 +193,15 @@ function BookingCalendar() {
               ) {
                 if (listBookingDate[date.getDate() - 1]?.status === "empty") {
                   return <div className="mt-1 status-round bg-green-600"></div>;
-                } else if (listBookingDate[date.getDate() - 1]?.status !== 1) {
+                } else if (
+                  listBookingDate[date.getDate() - 1]?.status === "filled"
+                ) {
+                  return (
+                    <div className="mt-1 status-round bg-orange-400"></div>
+                  );
+                } else if (
+                  listBookingDate[date.getDate() - 1]?.status === "empty"
+                ) {
                   return <div className="mt-1 status-round bg-red-600"></div>;
                 }
               }
@@ -208,7 +216,7 @@ function BookingCalendar() {
                   date.getFullYear() &&
                 listBookingDate[date.getDate() - 1]?.month ===
                   date.getMonth() + 1 &&
-                listBookingDate[date.getDate() - 1]?.status !== "empty"
+                listBookingDate[date.getDate() - 1]?.status === "full"
               ) {
                 return true;
               }
@@ -238,8 +246,11 @@ function BookingCalendar() {
                     className={`rounded-lg text-center p-1 w-80px ${
                       time?.id == selectedTime?.id
                         ? "bg-metal text-white border border-metabg-metal"
+                        : time?.status == "filled"
+                        ? "bg-orange-200 border border-orange-400"
                         : "border border-gray-600"
-                    } ${time?.status == "full" ? "opacity-40" : ""}`}
+                    } ${time?.status == "full" ? "opacity-40" : ""}
+                    `}
                   >
                     {time?.status == "full" ? "Booked" : time?.available_at}
                   </button>
