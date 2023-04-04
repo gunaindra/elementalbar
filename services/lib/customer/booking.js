@@ -15,15 +15,16 @@ export default {
     );
   },
 
-  bookCheckById({ id }) {
-    return axiosClient.get(`booking/check/${id}`);
+  bookCheckByToken({ token }) {
+    return axiosClient.get(`booking/check/${token}`);
   },
 
-  confirmBooking({ id, token, email }) {
+  confirmBooking({ id, token, email, seat_id }) {
     return axiosClient.post("booking/confirm", {
       id,
       token,
       email,
+      seat_id,
     });
   },
 
